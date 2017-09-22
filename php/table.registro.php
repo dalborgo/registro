@@ -25,20 +25,21 @@ Editor::inst( $db, 'registro', 'id' )
 	->fields(
         Field::inst( 'data' )
             ->getFormatter( 'Format::datetime', array( 'from'=>'Y-m-d H:i:s', 'to'  =>'D, j M Y H:i:s' ) )
-            ->setFormatter( 'Format::datetime', array( 'to'  =>'Y-m-d H:i:s', 'from'=>'D, j M Y H:i:s' ) ),
+            ->setFormatter( 'Format::datetime', array( 'to'  =>'Y-m-d H:i:s', 'from'=>'D, j M Y H:i:s' ) )
+            ->validator( 'Validate::notEmpty' ),
 		Field::inst( 'descrizione' ),
 		Field::inst( 'entrata' )->setFormatter( function($val, $data, $field) {
 		    if ($val == '' || $val == null)
 		        return null;
             else
                 return str_replace ( ',' , '.' , $val );
-        }),
+        })->validator( 'Validate::numeric' ),
 		Field::inst( 'uscita' )->setFormatter( function($val, $data, $field) {
             if ($val == '' || $val == null)
                 return null;
             else
                 return str_replace ( ',' , '.' , $val );
-        }),
+        })->validator( 'Validate::numeric' ),
 		Field::inst( 'totale' )->set(false)
 	)
 	->process( $_POST )

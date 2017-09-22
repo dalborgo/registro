@@ -1,0 +1,8 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea/
+php/lib/.DS_Store
+php/lib/Database/.DS_Store
+php/lib/Database/Driver/.DS_Store
+php/lib/Database/Driver/Sqlserver/.DS_Store
+php/lib/Ext/.DS_Store
+registro.iml

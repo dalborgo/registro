@@ -130,7 +130,7 @@ class Validate {
 	public static function __callStatic( $name, $arguments ) {
 		if ( preg_match( '/_required$/', $name ) ) {
 			if ( $arguments[0] === null || $arguments[0] === '' ) {
-				return 'This field is required';
+				return 'Questo campo è richiesto';
 			}
 
 			return call_user_func_array( 
@@ -296,7 +296,7 @@ class Validate {
 	 */
 	static function required( $val, $data, $opts, $host ) {
 		$cfg = Validate::_extend( $opts, null, array(
-			'message'  => "This field is required",
+			'message'  => "Questo campo è richiesto",
 			'required' => true
 		) );
 
@@ -331,7 +331,7 @@ class Validate {
 		// non-empty (user can override by passing in `empty=true` in opts
 		// at which point there is basically no validation
 		$cfg = Validate::_extend( $opts, null, array(
-			'message' => "This field is required",
+			'message' => "Questo campo è richiesto",
 			'empty'   => false
 		) );
 
@@ -389,7 +389,7 @@ class Validate {
 	 */
 	public static function numeric ( $val, $data, $opts, $host ) {
 		$cfg = Validate::_extend( $opts, null, array(
-			'message' => "This input must be given as a number",
+			'message' => "Questo campo deve essere un numero",
 			'decimal' => '.'
 		) );
 

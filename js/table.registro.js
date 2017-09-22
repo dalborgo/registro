@@ -68,7 +68,7 @@
                 }
             ]
         });
-        $('#registro').on( 'click', 'tbody td:not(:first-child)', function (e) {
+        $('#registro').on( 'click', 'tbody td', function (e) {
             editor.inline( this );
         } );
 
@@ -101,7 +101,6 @@
                 {className: "aleft", "targets": [1]}
                 // {"orderable": false, "targets": [1, 2, 3, 4]}
             ],
-            select: true,
             serverSide: true,
             lengthChange: false,
             language: {
@@ -118,6 +117,7 @@
             },
             select: 'single',
             order: [[0, "desc"]],
+            pageLength: 15,
             sortable: false,
             buttons: [
                 {extend: 'create', editor: editor},
